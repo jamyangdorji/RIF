@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src *; img-src 'self' data:; style-src 'self' 'unsafe-inline';script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="themes/myTheme.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="./js/jquery.mobile-1.4.5.css" />
+	<script src="./js/jquery.js"></script>
+	<script src="./js/jquery.mobile-1.4.5.js"></script>
+	<script src="./js/jquery.validate.min.js"></script>
+	<script src="./js/jQueryValidation.js"></script>
+
+	<script src="./js/index.js"></script>
+	<title>Repair It Yourself</title>
+</head>
+
+<body>
+	<!----------------Login Page--------------------------------->
+	<div data-role="page" id="loginPage">
+
+		<div data-role="content">
+			<div class="wrap login" style="text-align:center;">
+				<div>
+					<img src="img/logo.png" width="40%;" />
+					<h1>REPAIR IT YOURSELF</h1>
+				</div>
+
+				<form id="loginForm" method="get" action="">
+					<div>
+						<input type="email" name="email" placeholder="Enter your Email" />
+					</div>
+					<div>
+						<input type="password" name="password" placeholder="Enter the Password" />
+					</div>
+
+					<div>
+						<a href="#" id="loginButton" class="ui-btn ui-shadow ui-corner-all ui-btn-d">Login</a>
+					</div>
+				</form>
+				<p class="signup-text">Don’t have an account? <a href="#signUpPage">Sign Up</a></p>
+			</div>
+		</div>
+		<div data-role="footer" data-theme="d" data-position="fixed" class="footer" style="text-align:center;">
+			<p>Copyright © Repair It Yourself 2024</p>
+		</div>
+	</div>
+
+	<!------------------------Sign up page-------------------------->
+	<div data-role="page" id="signUpPage" style="text-align:center;">
+		<!------------------------Main content-------------------------->
+		<div data-role="content">
+			<div class="wrap login">
+				<div>
+					<img src="img/logo.png" width="40%;" />
+					<h1>REPAIR IT YOURSELF</h1>
+				</div>
+				<form id="signUpForm" method="get" action="">
+					<input type="email" name="email" placeholder="Email" />
+					<input type="password" name="password" placeholder="Password" />
+					<input type="text" name="fullName" placeholder="*Full Name" />
+					<input type="text" name="phoneNumber" placeholder="Phone number">
+					<div>
+						<a href="#" id="signUpButton" class="ui-btn ui-shadow ui-corner-all ui-btn-d">Sign up</a>
+						<button id="clearSignUpButton" type="reset"
+							class="ui-btn ui-shadow ui-corner-all">Clear</button>
+					</div>
+				</form>
+				<p class="signup-text">You have an account? <a href="#loginPage">Login</a></p>
+			</div>
+		</div>
+		<!--footer-->
+		<div data-role="footer" data-theme="d" data-position="fixed" class="footer" style="text-align:center;">
+			<p>Copyright © Repair It Yourself 2024</p>
+		</div>
+	</div>
+
+
+	<!------------------------Home page---------------------------->
+	<div data-role="page" id="homePage">
+		<!------------------------Header---------------------------->
+		<div class="header" data-role="header" data-theme="d" data-position="fixed">
+			<!-- Search Bar and Profile Icon -->
+			<div class="search-bar">
+				<div class="search-input">
+					<input id="searchInput" type="text" placeholder="Search by Name, Description,....">
+				</div>
+				<button class="searchButton" id="searchButton" data-icon="search"
+					class="ui-btn ui-icon-search ui-btn-icon-left"
+					style="padding: 20px 20px; border-color:#6488f8; background-color:#6488f8;"></button>
+
+				<a href="#profileButton" id="profileButton" class="profile-icon">
+					<img src="img/me.png" alt="Profile Icon">
+				</a>
+				<div class="dropdown-menu" id="profileDropdown">
+					<p id="profileName"></p>
+					<a href="#loginPage">Logout</a>
+				</div>
+			</div>
+		</div>
+		<!------------------------Main content---------------------------->
+		<div data-role="content">
+
+			<div class="tiles-container" id="tilesContainer">
+				<!-- Tiles will be dynamically inserted here -->
+			</div>
+
+		</div>
+
+		<!--------------------footer---------------------------------->
+		<div data-role="footer" data-theme="d" data-position="fixed" class="footer" style="text-align:center;">
+			<div class="bottom-nav">
+				<div class="icons-container">
+					<a class="nav-item" id="favouritesButton">
+						<img src="img/favourites.png" alt="Favorites">
+					</a>
+					<a class="nav-item" id="profHomeButton">
+						<img src="img/home_ac.png" alt="Home">
+					</a>
+					<a class="nav-item" id="settingsButton">
+						<img src="img/setting.png" alt="Profile">
+					</a>
+				</div>
+			</div>
+			<p>Copyright © Repair It Yourself 2024</p>
+		</div>
+	</div>
+
+	<!------------------------Professional Home page---------------------------->
+	<div data-role="page" id="profHomePage">
+		<!------------------------Header---------------------------->
+		<div class="header" data-role="header" data-theme="d" data-position="fixed">
+			<!-- Search Bar and Profile Icon -->
+			<div class="search-bar">
+				<div class="search-input">
+					<input id="profSearchInput" type="text" placeholder="Search by Name, Description,....">
+				</div>
+				<button id="profSearchButton" data-icon="search" class="ui-btn ui-icon-search ui-btn-icon-left"
+					style="padding: 20px 20px; border-color:#6488f8; background-color:#6488f8;"></button>
+				<a href="#profProfileButton" id="profProfileButton" class="profile-icon">
+					<img src="img/me.png" alt="Profile Icon">
+				</a>
+				<div class="dropdown-menu" id="profProfileDropdown">
+					<p id="profProfileName"></p>
+					<a href="#loginPage">Logout</a>
+				</div>
+			</div>
+		</div>
+		<!------------------------Main content---------------------------->
+		<div data-role="content">
+
+			<div class="tiles-container" id="profTilesContainer">
+				<!-- Tiles will be dynamically inserted here -->
+			</div>
+			<div class="wrap pb">
+				<a href="#createSolutionPage" id="createSolutionButton"
+					class="ui-btn ui-shadow ui-corner-all ui-btn-d">Post A Solution</a>
+			</div>
+		</div>
+		<!--------------------footer---------------------------------->
+		<div data-role="footer" data-theme="d" data-position="fixed" class="footer" style="text-align:center;">
+			<div class="bottomNav">
+				<div class="icons-container">
+					<a class="navItem" id="favouritesButton">
+						<img src="img/favourites.png" alt="Favorites">
+					</a>
+					<a class="navItem" id="profHomeButton">
+						<img src="img/home_ac.png" alt="Home">
+					</a>
+					<a class="navItem" id="settingsButton">
+						<img src="img/setting.png" alt="Profile">
+					</a>
+				</div>
+			</div>
+			<p>Copyright © Repair It Yourself 2024</p>
+		</div>
+	</div>
+
+	<!------------------------Create Solution page---------------------------->
+	<div data-role="page" id="createSolutionPage">
+		<div class="header" data-role="header" data-theme="d" data-position="fixed">
+
+			<a href="javascript:history.go(-1)" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all">&lt;</a>
+			<h1>Post A Solution</h1>
+			<a href="#homePage" rel="external">&#8942;</a>
+		</div>
+		<!------------------------Main content---------------------------->
+		<div data-role="content" id="content">
+			<div class="wrap">
+				<form id="solutionForm" method="get" action="">
+					<p class="fcolor">Solution Heading</p>
+					<input type="text" name="solutionHeading" placeholder="*Heading">
+					<p class="fcolor">Description </p>
+					<input type="text" name="description" placeholder="*Description">
+					<p class="fcolor">Instructions </p>
+					<input type="text" name="instructions" placeholder="*Instructions">
+					<p class="fcolor">Solution Type </p>
+					<select name="state">
+						<option value="Automobiles">Automobiles</option>
+						<option value="Gadgets">Gadgets</option>
+						<option value="Household">Household</option>
+						<option value="Industrial">Industrial</option>
+					</select>
+					<p class="fcolor">Photos </p>
+					<div class="photos" id="photos">
+						<input type="file" id="file-input" accept="image/*" style="display: none;">
+						<img src="img/upload-icon.png" alt="Upload Icon" id="upload-icon" style="cursor: pointer;">
+						<p>Browse Files to upload</p>
+					</div>
+
+					<div class="file-list" id="file-list">
+						<img src="" alt="" id="file-preview">
+						<span id="file-name">No selected file</span>
+						<button id="delete-file-btn" style="display: none;">🗑</button>
+					</div>
+					<a id="confirmSolutionButton" class="ui-btn ui-shadow ui-corner-all ui-btn-d">Confirm</a>
+					<button id="clearSolutionButton" type="reset" class="ui-btn ui-shadow ui-corner-all">Clear</button>
+				</form>
+			</div>
+		</div>
+
+		<div data-role="footer" data-theme="d" data-position="fixed" class="footer" style="text-align:center;">
+			<p>Copyright © Repair It Yourself 2024</p>
+		</div>
+	</div>
+
+
+	<!------------------------View Solution page---------------------------->
+	<div data-role="page" id="viewSolutionPage">
+		<!------------------------Header---------------------------->
+		<div class="header" data-role="header" data-theme="d" data-position="fixed">
+			<a href="javascript:history.go(-1)" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all">&lt;</a>
+			<h1>Solution Details</h1>
+			<a href="#homePage" rel="external">&#8942;</a>
+		</div>
+
+		<!------------------------Main content---------------------------->
+		<div data-role="content" style="text-align:center;">
+
+			<div class="tile-title" id="solutionHeading">
+				<!-- Star rating will be injected here -->
+			</div>
+			<div class="tile-sub-title" id="solutionType">
+				<!-- Star rating will be injected here -->
+			</div>
+			<div class="tile-rating" id="solutionRating">
+				<!-- Star rating will be injected here -->
+			</div>
+			<p class="tile-description" id="solutionDescription">
+				<!-- Description will be injected here -->
+			</p>
+			<h3>Instructions</h3>
+			<p class="tile-instructions" id="solutionInstructions">
+				<!-- Instructions will be injected here -->
+			</p>
+			<h3>Photos</h3>
+			<div class="tile-photos" id="solutionPhotos">
+				<!-- Photos will be displayed here -->
+			</div>
+			<div class="wrap pb">
+				<a id="ratingSolutionButton" href="#ratingSolution" data-rel="popup"
+					class="ui-btn ui-shadow ui-corner-all ui-btn-d" style="display: none;">Post A Rating</a>
+				<a id="requestGuidanceButton" class="ui-btn ui-shadow ui-corner-all ui-btn-d">Request For A Professional
+					Guidance</a>
+			</div>
+
+		</div>
+
+		<!-- Modal window for posting a rating -->
+		<div data-role="popup" id="ratingSolution" class="ui-content" data-overlay-theme="b" data-theme="a"
+			data-dismissible="false" style="max-width:800px;">
+			<!-- Rating form -->
+			<form id="ratingForm">
+				<!-- Rating Input -->
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Your Rating:</legend>
+					<input type="radio" name="rating" id="star1" value="1">
+					<label for="star1">1</label>
+					<input type="radio" name="rating" id="star2" value="2">
+					<label for="star2">2</label>
+					<input type="radio" name="rating" id="star3" value="3">
+					<label for="star3">3</label>
+					<input type="radio" name="rating" id="star4" value="4">
+					<label for="star4">4</label>
+					<input type="radio" name="rating" id="star5" value="5">
+					<label for="star5">5</label>
+				</fieldset>
+
+				<!-- Submit and Cancel buttons -->
+				<button type="submitRating" class="ui-btn ui-corner-all ui-btn-b">Submit Rating</button>
+				<a href="#" data-rel="back"
+					class="ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-icon-delete ui-btn-icon-left">Cancel</a>
+			</form>
+		</div>
+
+		<!------------------------Footer---------------------------->
+		<div data-role="footer" data-theme="d" data-position="fixed" class="footer" style="text-align:center;">
+			<p>Copyright © Repair It Yourself 2024</p>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+
+</html>
